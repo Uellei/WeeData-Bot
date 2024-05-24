@@ -1,13 +1,13 @@
 // src/context/FetchContext.tsx
 
-import React, { createContext, useState, ReactNode, useContext } from 'react'
+import React, { createContext, useState, ReactNode, useContext, useEffect } from 'react'
 
 interface FetchContextProps {
   inputValue: string
   setInputValue: (value: string) => void
   fetchResults: any[]
   fetchData: () => void
-  isLoading: boolean;
+  isLoading: boolean
   setBotName: (value: string) => void
 }
 
@@ -43,6 +43,12 @@ export const FetchProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       setIsLoading(false)
     }
   };
+
+  useEffect(() => {
+    if (botName) {
+      fetchData()
+    }
+  }, [botName])
 
   return (
     <FetchContext.Provider value={{ inputValue, setInputValue, fetchResults, fetchData, isLoading, setBotName }}>

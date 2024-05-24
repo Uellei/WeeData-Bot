@@ -11,6 +11,8 @@ import Home from './routes/Home';
 import AliExpress from './routes/AliExpress';
 import Amazon from './routes/Amazon';
 import { FetchProvider } from './contexts/FetchContext';
+import Nike from './routes/Nike';
+import Adidas from './routes/Adidas';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,15 @@ const router = createBrowserRouter([
   {
     path: "amazon",
     element: <Amazon />
+  },
+  {
+    path: "nike",
+    element: <Nike />
+  }
+  ,
+  {
+    path: "adidas",
+    element: <Adidas />
   }
 ])
 

@@ -1,13 +1,7 @@
 import React from "react"
 import { Header } from "../components/Header/Header"
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons'
-import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons'
-import ImageComponent from "../components/ImageComponent/ImageComponent"
 import { useFetchContext } from "../contexts/FetchContext"
+import ProductCarousel from "../components/Carousel/ProductCarousel"
 
 
 
@@ -20,6 +14,7 @@ const AliExpress = () => {
         "sec-ch-ua": "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     }
+
     const data = [
         {
             "productId": "1005006437109214",
@@ -502,66 +497,18 @@ const AliExpress = () => {
             "originalPrice": "R$ 106,25"
         }
     ]
-    const priceFormatted = (salePrice: string) => {
-        const priceArray = salePrice.split(' ')
-        const numberPart = priceArray[1]
-        const [wholePart, fractionalPart] = numberPart.split(',')
-        return { wholePart, fractionalPart }
-    }
-    const settings = {
-        className: "center",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 4.84,
-        speed: 500,
-        rows: 2,
-        slidesPerRow: 1
-    }
+    
     const dataToRender = fetchResults.length > 0 ? fetchResults : data
     return (
         <div className='bg-[#131313] min-h-screen max-h-screen overflow-hidden'>
-            <Header searchItem={true}/>
+            <Header searchItem={true} botName="aliexpress"/>
             <div className="container mx-auto">
                 {isLoading ? (
                     <div>
                         <div></div> {/* COLOCAR ALGUMA IMAGEM DE UM ROBO PRA LOADING AQUI */}
                     </div>
                 ) : (
-                    <Slider {...settings}>
-                    {dataToRender.map((d, index) => {
-                        const { wholePart, fractionalPart } = priceFormatted(d.salePrice)
-                        return (
-                            <div key={index} className="text-white rounded-xl p-4 h-full my-1 w-48"> {/* Ajuste a altura e margens */}
-                                <div className="bg-[#191919] p-2 rounded-t-lg h-52">
-                                    <ImageComponent imageUrl={`https:${d.image}_.webp`} headers={headers} referrer="https://pt.aliexpress.com/"/> {/* Ajuste a altura da imagem */}
-                                </div>
-                                <div className="bg-[#191919] h-48 flex flex-col items-center rounded-b-lg"> {/* Ajuste o espaçamento interno */}
-                                    <p className="px-2 mt-4 w-full text-white text-xl font-semibold truncate ...">{d.nameItem}</p> {/* Ajuste o tamanho do texto */}
-                                    <div className="flex w-full px-2 py-1.5 items-center">
-                                        <div className="text-white text-sm">
-                                            <FontAwesomeIcon icon={solidStar} />
-                                            <FontAwesomeIcon icon={solidStar} />
-                                            <FontAwesomeIcon icon={solidStar} />
-                                            <FontAwesomeIcon icon={solidStar} />
-                                            <FontAwesomeIcon icon={regularStar} />
-                                        </div>
-                                        <p className="text-white text-base ml-4">{d.sales}</p> {/* Ajuste o tamanho do texto */}
-                                    </div>
-                                    <div className="flex w-full px-2 text-center items-end">
-                                        <p className="text-white text-lg font-bold">
-                                            R$
-                                            <span className="text-3xl"> {wholePart}</span>
-                                            <span className="text-lg">,{fractionalPart}</span>
-                                        </p>
-                                        <p className="line-through text-gray-500 ml-3 text-lg">{d.originalPrice}</p>
-                                    </div>
-                                    <a href={`https://pt.aliexpress.com/item/${d.productId}.html`} target="_blank" rel="noreferrer" className="bg-white text-black font-bold hover:bg-gray-300 text-lg px-6 rounded-full py-1 my-2 mt-6 w-7/12 text-center">Visualizar</a>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </Slider>
+                    <ProductCarousel data={dataToRender} headers={headers} />
                 )}
             </div>
         </div>

@@ -1,37 +1,12 @@
-from bots.bot_base import BotBase
+from backend.app.service.bot.bot_base import BotBase
+from backend.app.service.extraction.web_scrapping import WebExtract
 
 
 class Kabum(BotBase):
-    async def parse_page(self, page) -> dict:
+    async def parse_page(self, page, web_extract: WebExtract) -> dict:
         await page.wait_for_load_state(state="domcontentloaded")
 
-        data = await page.evaluate(""" () => {
-            const cards = Array.from(document.querySelectorAll('article.productCard'))
-
-            return cards.map(el => {
-                const productId = el.querySelector('a').href
-                const image = el.querySelector('img.imageCard').src
-                const nameItem = trimText(el.querySelector('span.nameCard'))
-                
-                const elementStars = el.querySelector('.estrelasAvaliacao')
-                const stars = elementStars ? 
-                    Array.from(elementStars.querySelectorAll('.estrelaAvaliacao')).reduce((count, star) => {
-                        return count + (star.querySelector('svg > path').getAttribute('d').startsWith('M17') ? 1 : 0)
-                    }, 0).toString() : ""
-
-                const totalAvaliacoes = el.querySelector('.labelTotalAvaliacoes')
-                const sales = totalAvaliacoes ? trimText(totalAvaliacoes) : ""
-
-                const salePrice = trimText(el.querySelector('span.priceCard'))
-                const originalPrice = trimText(el.querySelector('span.oldPriceCard'))
-
-                return { productId, image, nameItem, sales, stars, salePrice, originalPrice }
-            })
-            function trimText(text) {
-                return text ? text.textContent.replace(/\\s+/g, ' ').trim() : "";
-            }
-        }""")
-        return data
+        return await web_extract.get_kabum_data()
     
 async def fetch_kabum(product_name: str) -> dict:
     kabum_bot = Kabum(

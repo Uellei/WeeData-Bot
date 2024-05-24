@@ -8,7 +8,7 @@ from bots.amazon import fetch_amazon
 from bots.nike import fetch_nike
 from bots.kabum import fetch_kabum
 from bots.adidas import fetch_adidas
-from app.models import Product
+from models import Product
 
 app = FastAPI()
 

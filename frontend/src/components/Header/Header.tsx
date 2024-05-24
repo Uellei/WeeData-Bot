@@ -4,17 +4,20 @@ import { useFetchContext } from '../../contexts/FetchContext'
 
 interface HeaderProps {
   searchItem: boolean
+  botName?: string
 }
 
-export function Header({ searchItem }: HeaderProps) {
-  const { inputValue, setInputValue, fetchData } = useFetchContext()
+export function Header({ searchItem, botName }: HeaderProps) {
+  const { inputValue, setInputValue, setBotName } = useFetchContext()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
   }
 
   const handleButtonClick = () => {
-    fetchData()
+    if (searchItem) {
+      setBotName(botName ? botName : "")
+    }
   }
 
   return (
