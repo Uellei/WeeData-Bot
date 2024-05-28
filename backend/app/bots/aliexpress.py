@@ -1,8 +1,8 @@
 import sys
 sys.path.append('/home/weslleysantos/Projetos/extractData')
 
-from backend.app.service.bot.bot_base import BotBase
 from backend.app.service.extraction.web_scrapping import WebExtract
+from backend.app.service.bot.bot_base import BotBase
 
 
 class Aliexpress(BotBase):
@@ -17,13 +17,15 @@ class Aliexpress(BotBase):
                 "image": item["image"]["imgUrl"],
                 "nameItem": item["title"]["displayTitle"],
                 "sales": item["trade"]["tradeDesc"],
-                "stars": "",
+                # Usa get com valor padrão vazio
+                "stars": str(item.get("evaluation", {}).get("starRating", "")),
                 "salePrice": item["prices"]["salePrice"]["formattedPrice"],
                 "originalPrice": item["prices"]["originalPrice"]["formattedPrice"] if "originalPrice" in item["prices"] else ""
             } for item in object_json["data"]["data"]["root"]["fields"]["mods"]["itemList"]["content"]
         ]
 
         return extract_data
+
 
 async def fetch_aliexpress(product_name: str) -> dict:
     formated_name = product_name.replace(" ", "-")

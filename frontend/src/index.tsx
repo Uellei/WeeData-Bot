@@ -13,6 +13,7 @@ import Amazon from './routes/Amazon';
 import { FetchProvider } from './contexts/FetchContext';
 import Nike from './routes/Nike';
 import Adidas from './routes/Adidas';
+import Kabum from './routes/Kabum';
 
 const router = createBrowserRouter([
   {
@@ -30,11 +31,14 @@ const router = createBrowserRouter([
   {
     path: "nike",
     element: <Nike />
-  }
-  ,
+  },
   {
     path: "adidas",
     element: <Adidas />
+  },
+  {
+    path: "kabum",
+    element: <Kabum />
   }
 ])
 

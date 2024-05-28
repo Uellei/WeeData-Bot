@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: >
+      sh -c "cd .. && uvicorn run_scrapper:app --reload"

@@ -34,7 +34,16 @@ window.myLib = {
 
     return cards.map(el => {
       const productId = el.querySelector('a').href
-      const image = el.querySelector('div > span > img').src
+      const imageText = el.querySelector('div noscript').textContent
+        let image
+      if(imageText) {
+        const regex = /250w,\s*(.*?)\s*360w/;
+      const match = imageText.match(regex);
+      image = match[1]   
+      } else {
+          el.scrollIntoView()
+          image = el.querySelector('div > span > img').src
+      }
       const nameItem = window.myLib.trimText(el.querySelector('div[class*="ProductName"]'))
       const sales = window.myLib.trimText(el.querySelector('div[class*="ProductCategory"]'))
       const stars = window.myLib.trimText(el.querySelector('span[class*="RatingStarSnippet"]'))

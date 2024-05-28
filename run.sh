@@ -6,13 +6,12 @@ echo "Running Backend app scrapping and Front end"
 # Executa o backend
 cd backend
 source env/bin/activate
-cd app
-uvicorn main:app --reload &
+uvicorn run_scrapper:app --reload &
 BACKEND_PID=$!
 
 # Executa o frontend
 
-cd ../../frontend
+cd ../frontend
 npm start &
 FRONTEND_PID=$!
 

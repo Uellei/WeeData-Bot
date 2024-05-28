@@ -559,7 +559,7 @@ const Amazon = () => {
 
     const dataToRender = fetchResults.length > 0 ? fetchResults : data
     return (
-        <div className='bg-[#131313] min-h-screen max-h-screen overflow-hidden'>
+        <div className='bg-[#131313] min-h-screen'>
             <Header searchItem={true} botName="amazon"/>
             <div className="container mx-auto">
                 {isLoading ? (

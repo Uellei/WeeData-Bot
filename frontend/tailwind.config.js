@@ -26,6 +26,9 @@ module.exports = {
       },
       width: {
         image: "242px"
+      },
+      borderWidth: {
+        borderWidth: "thin"
       }
     },
   },

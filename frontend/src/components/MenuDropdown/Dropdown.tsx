@@ -8,7 +8,8 @@ const Dropdown = ({ choseWebsite, setChoseWebsite }: any) => {
     { name: "aliexpress", label: "Aliexpress" },
     { name: "amazon", label: "Amazon" },
     { name: "nike", label: "Nike" },
-    { name: "adidas", label: "Adidas" }
+    { name: "adidas", label: "Adidas" },
+    { name: "kabum", label: "Kabum" }
   ]
 
   const handleClick = (website: string) => {

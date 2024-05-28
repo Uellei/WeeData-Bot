@@ -13,7 +13,7 @@ interface FetchContextProps {
 
 const FetchContext = createContext<FetchContextProps | undefined>(undefined)
 
-export const FetchProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const FetchProvider = ({ children }: { children: ReactNode }) => {
   const [inputValue, setInputValue] = useState<string>('')
   const [botName, setBotName] = useState<string>('')
   const [fetchResults, setFetchResults] = useState<any[]>([])
