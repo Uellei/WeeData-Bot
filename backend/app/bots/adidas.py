@@ -1,5 +1,5 @@
 import httpx
-from backend.app.service.bot.bot_base import BotBase
+from service.bot.bot_base import BotBase
 
 
 class Adidas(BotBase):

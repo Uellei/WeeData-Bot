@@ -2,8 +2,34 @@ version: '3'
 
 services:
   backend:
+    container_name: traseira-rapidoacesso
     build:
-      context: ./backend
-      dockerfile: Dockerfile
-    command: >
-      sh -c "cd .. && uvicorn run_scrapper:app --reload"
+      context: .
+      dockerfile: ./backend-dockerfile
+    working_dir: /backend/app
+    command: ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+    volumes:
+      - ./backend:/backend
+    ports:
+      - "8000:8000"
+    networks: 
+      - network
+
+  frontend:
+    container_name: cara-reacao
+    build:
+      context: .
+      dockerfile: ./frontend-dockerfile
+    working_dir: /frontend
+    command: ["npm", "start"]
+    volumes:
+      - ./frontend:/frontend
+      - /frontend/node_modules
+      - ./frontend/public:/public
+    ports:
+      - "80:3000"
+    networks: 
+      - network
+
+networks:
+  network:

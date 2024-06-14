@@ -50,7 +50,6 @@ const Cards = ({ card, headers }: CardProps) => {
     })
     return headers
   }
-  console.log(card.image)
   const headersObj = convertToHeaders(headers)
 
   return (

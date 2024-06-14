@@ -1,5 +1,5 @@
-from backend.app.service.bot.bot_base import BotBase
-from backend.app.service.extraction.web_scrapping import WebExtract
+from service.bot.bot_base import BotBase
+from service.extraction.web_scrapping import WebExtract
 
 
 class Nike(BotBase):

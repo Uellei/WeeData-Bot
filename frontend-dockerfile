@@ -1,0 +1,14 @@
+FROM node:21.2.0-alpine AS build
+
+# Copy the packages file into the container
+COPY ./frontend/package*.json ./
+
+# Install packages
+RUN npm install
+
+COPY ./frontend .
+
+# Build application
+RUN npm run build
+
+WORKDIR /frontend

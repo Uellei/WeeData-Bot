@@ -26,13 +26,12 @@ function Home() {
   const [choseWebsite, setChoseWebsite] = useState<string>("Chose Website")
 
   const navigate = useNavigate()
-  const { inputValue, setInputValue, setBotName, fetchData } = useFetchContext()
+  const { inputValue, setInputValue, fetchData } = useFetchContext()
 
   const handleSearch = async () => {
     const routes = ['aliexpress', 'amazon', 'nike', 'adidas'];
     if (routes.includes(choseWebsite)) {
-      setBotName(choseWebsite);
-      fetchData();
+      fetchData()
       navigate(`/${choseWebsite}`);
     } else {
       showPopupError();
@@ -50,7 +49,7 @@ function Home() {
           <RoboHandIcon className="drop-shadow-custom" />
         </div>
       </div> */}
-      <Header searchItem={false} />
+      <Header searchItem={false} placeHolder='' showInput={false}/>
       <div className="relative container p-8 mt-20 mx-auto xl:px-0 flex w-full flex-col items-center justify-center text-center">
         <div className="text-2xl font-semibold tracking-tight text-[#e5bf7f]">
           Designed by Weslley

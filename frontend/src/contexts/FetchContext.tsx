@@ -18,13 +18,13 @@ export const FetchProvider = ({ children }: { children: ReactNode }) => {
   const [botName, setBotName] = useState<string>('')
   const [fetchResults, setFetchResults] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const API_URL = "http://traseira-rapidoacesso:8000"
 
   const fetchData = async () => {
     try {
       setIsLoading(true)
       setFetchResults([])
-      console.log(inputValue, botName)
-      const response = await fetch('http://localhost:8000/products/', {
+      const response = await fetch(`${API_URL}/products`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ export const FetchProvider = ({ children }: { children: ReactNode }) => {
     if (botName) {
       fetchData()
     }
-  }, [botName])
+  }, [inputValue])
 
   return (
     <FetchContext.Provider value={{ inputValue, setInputValue, fetchResults, fetchData, isLoading, setBotName }}>

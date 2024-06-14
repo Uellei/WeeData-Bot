@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import urllib.parse
 
-from app.bots.aliexpress import fetch_aliexpress
+from bots.aliexpress import fetch_aliexpress
 from bots.amazon import fetch_amazon
 from bots.nike import fetch_nike
 from bots.kabum import fetch_kabum
@@ -40,3 +40,7 @@ async def get_product_details(product: Product):
         return await fetch_product_details(product.name, product.bot)
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+    
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, port=8000)

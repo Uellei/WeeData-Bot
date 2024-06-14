@@ -5,8 +5,8 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
-from backend.app.service.extraction.file_path import FilePath, FilePathAdapter
-from backend.app.service.extraction.web_scrapping import WebExtract
+from service.extraction.file_path import FilePath, FilePathAdapter
+from service.extraction.web_scrapping import WebExtract
 
 
 class BotBase(ABC):

@@ -1,4 +1,4 @@
-from backend.app.service.extraction.file_path import FilePathAdapter
+from service.extraction.file_path import FilePathAdapter
 
 
 class WebExtract:

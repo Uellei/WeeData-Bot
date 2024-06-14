@@ -20,7 +20,6 @@ const normalizeImageUrl = (url: string): string => {
 };
 
 const ImageComponent = ({ imageUrl, headers, referrer }: ImageComponentProps) => {
-  console.log(imageUrl)
   const [image, setImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const fetchedUrls = useRef(new Map<string, string>()); // Store fetched URLs and their object URLs

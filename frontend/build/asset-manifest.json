@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.81c4eaf6.css",
+    "main.js": "/static/js/main.1b4aeb9c.js",
+    "static/js/453.d855a71b.chunk.js": "/static/js/453.d855a71b.chunk.js",
+    "static/media/adidas-logo.svg": "/static/media/adidas-logo.f6880029bad975f2971a73ea5def28f7.svg",
+    "static/media/amazon-logo.svg": "/static/media/amazon-logo.2146cdc07bdd7ada597500892af83537.svg",
+    "static/media/react-logo.svg": "/static/media/react-logo.9da1bc8bd01fdaa934d1d188e905c757.svg",
+    "static/media/aliexpress-logo.svg": "/static/media/aliexpress-logo.6c21050e007bfe9079d1f310ae333172.svg",
+    "static/media/nike-logo.svg": "/static/media/nike-logo.a9ba9c3dcccf5deaf891ed80c5d88f6b.svg",
+    "static/media/python-logo.svg": "/static/media/python-logo.b94212c1cd6bb64f7344cbabc31200d6.svg",
+    "static/media/logo_kabum_TPcDkR.svg": "/static/media/logo_kabum_TPcDkR.9bd83b7d557a4286a945defa3bd265b5.svg",
+    "static/media/typescript-logo.svg": "/static/media/typescript-logo.2c857d8cefb35d43a27b64f0186967ee.svg",
+    "static/media/figma-logo.svg": "/static/media/figma-logo.d40ef68e8248b53ab8987699b309b525.svg",
+    "static/media/tailwind-logo.svg": "/static/media/tailwind-logo.4d7902b231539ded6b8f02b670598f71.svg",
+    "index.html": "/index.html",
+    "static/media/robot.svg": "/static/media/robot.2b378cd6107bee092bb06025d1e37e12.svg",
+    "main.81c4eaf6.css.map": "/static/css/main.81c4eaf6.css.map",
+    "main.1b4aeb9c.js.map": "/static/js/main.1b4aeb9c.js.map",
+    "453.d855a71b.chunk.js.map": "/static/js/453.d855a71b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81c4eaf6.css",
+    "static/js/main.1b4aeb9c.js"
+  ]
+}

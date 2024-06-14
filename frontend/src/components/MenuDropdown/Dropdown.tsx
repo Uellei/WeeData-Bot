@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useFetchContext } from "../../contexts/FetchContext";
 
 const Dropdown = ({ choseWebsite, setChoseWebsite }: any) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const { setBotName } = useFetchContext()
 
   const websites = [
     { name: "aliexpress", label: "Aliexpress" },
@@ -11,8 +13,8 @@ const Dropdown = ({ choseWebsite, setChoseWebsite }: any) => {
     { name: "adidas", label: "Adidas" },
     { name: "kabum", label: "Kabum" }
   ]
-
   const handleClick = (website: string) => {
+    setBotName(website)
     setChoseWebsite(website)
     setIsOpen(false)
   }

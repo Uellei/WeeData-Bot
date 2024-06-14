@@ -1,8 +1,5 @@
-import sys
-sys.path.append('/home/weslleysantos/Projetos/extractData')
-
-from backend.app.service.extraction.web_scrapping import WebExtract
-from backend.app.service.bot.bot_base import BotBase
+from service.extraction.web_scrapping import WebExtract
+from service.bot.bot_base import BotBase
 
 
 class Aliexpress(BotBase):
