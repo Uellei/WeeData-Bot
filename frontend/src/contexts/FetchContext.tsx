@@ -18,7 +18,7 @@ export const FetchProvider = ({ children }: { children: ReactNode }) => {
   const [botName, setBotName] = useState<string>('')
   const [fetchResults, setFetchResults] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const API_URL = "http://traseira-rapidoacesso:8000"
+  const API_URL = "http://localhost:8000" // "http://traseira-rapidoacesso:8000" funciona no docker
 
   const fetchData = async () => {
     try {
