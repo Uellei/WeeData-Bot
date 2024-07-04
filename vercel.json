@@ -9,14 +9,14 @@
         }
       },
       {
-        "src": "frontend/api/proxy.js",
+        "src": "frontend/src/api/proxy.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/api/proxy",
-        "dest": "/api/proxy.js"
+        "dest": "/frontend/src/api/proxy.js"
       },
       {
         "src": "/(.*)",
