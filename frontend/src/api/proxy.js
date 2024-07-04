@@ -2,9 +2,11 @@ const express = require('express');
 const request = require('request');
 const app = express();
 
-app.get('/api/proxy', (req, res) => {
+app.get('/proxy', (req, res) => {
     const url = req.query.url;
     request.get(url).pipe(res);
 });
 
-module.exports = app;
+app.listen(3001, () => {
+    console.log('Proxy server running on port 3001');
+});
