@@ -59,3 +59,5 @@ start_proxy
 
 # Espera os processos finalizarem
 wait $BACKEND_PID $FRONTEND_PID $PROXY_PID
+
+# Conferir se ja não tem algo rodando, redirecionar o log ou alguma coisa, e verificar oque é o || exit

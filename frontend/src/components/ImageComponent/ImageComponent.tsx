@@ -25,7 +25,7 @@ const ImageComponent = ({ imageUrl, headers, referrer }: ImageComponentProps) =>
   const fetchedUrls = useRef(new Map<string, string>()); // Store fetched URLs and their object URLs
 
   const normalizedImageUrl = useMemo(() => normalizeImageUrl(imageUrl), [imageUrl]);
-  const proxyUrl = useMemo(() => `http://localhost:3001/proxy?url=${encodeURIComponent(normalizedImageUrl)}`, [normalizedImageUrl]);
+  const proxyUrl = useMemo(() => `/api/proxy?url=${encodeURIComponent(normalizedImageUrl)}`, [normalizedImageUrl]);
 
   const fetchImage = useMemo(() => {
     return async () => {

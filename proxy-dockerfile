@@ -1,0 +1,7 @@
+FROM node:21.2.0-alpine AS build
+
+COPY ./frontend/package*.json ./
+
+RUN npm install
+
+COPY ./frontend/src/services .
